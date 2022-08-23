@@ -1,0 +1,25 @@
+{% extends "authentication/base.html" %}
+
+{% block titulo %}<title> Iniciar Sesion </title>{% endblock %} 
+
+
+{% block tabs %}
+    <a href='{% url "login" %}'><h2 class="active"> Iniciar Sesion </h2></a>
+    <a href='{% url "signup" %}'><h2 class="inactive underlineHover"> Registrase </h2></a>
+{% endblock tabs %}
+
+
+
+{% block forms %}
+
+{% if error %}
+    <p style="color: rgb(170, 16, 16);">{{error}}</p>
+{% endif %}
+
+    <form method="post"> 
+        {% csrf_token %}
+        {{form.username}}
+        {{form.password}}
+        <input type="submit" class="fadeIn fourth" value="Ingresar">
+    </form>
+{% endblock forms %}

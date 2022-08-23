@@ -1,0 +1,26 @@
+{% extends "authentication/profile.html" %}
+
+{% block titulo %}<title> Editar Perfil </title>{% endblock %}
+
+
+{% block editar_data %}
+{% if error %}
+    <p style="color: red;">{{error}}</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <h3>NOMBRE:</h3>
+    <p>{{form.first_name}}</p>
+    <h3>APELLIDO:</h3>
+    <p>{{form.last_name}}</p>
+    <h3>EMAIL:</h3>
+    <p>{{form.email}}</p> 
+    <h3>DESCRIPCION:</h3>
+    <p></p>
+    <h3>SITIO WEB:</h3>
+    {{form.sitio_link}}
+
+    
+    <input type="submit" class="fadeIn fourth" value="Editar" style="margin: 10px;">
+</form>
+{% endblock editar_data %}

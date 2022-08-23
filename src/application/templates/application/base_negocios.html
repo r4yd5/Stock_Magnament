@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}<title> {{titulo}} </title>{% endblock %}
+    <link rel="stylesheet" href="{% static 'application/css/l.css'%}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
+</head>
+<body>
+    
+<header>
+    <div id="nav">
+        <nav id="nav-1">
+            <div class="div-navs">
+            <div style="text-align: start;">
+                <a class="link-1" href="{% url 'home' %}">STOCK MANAGE</a> 
+            </div>
+            <div style="text-align: center;">
+                <a class="link-1" href="{% url 'negocio_1_listar' %}">Negocio 1</a>
+                <a class="link-1" href="{% url 'negocio_2_listar' %}">Negocio 2</a>
+                <a class="link-1" href="{% url 'negocio_3_listar' %}">Negocio 3</a>
+            </div>
+            <div style="text-align: end;">
+                <a class="link-1" href="{% url 'logout' %}">Logout</a>  
+                <a class="link-1" href="{% url 'profile'%}">{{request.user.username}}</a>  
+                {% if flag %}
+                    <img class="avatar" src="{{avatar}}" alt="">
+                {% else %}
+                    <img class="avatar" src="{% static 'application/no-avatar/default-user-image.png' %}" alt="">
+                {% endif %}
+
+
+                    
+
+            </div>
+            </div>
+        </nav>
+    </div>
+{% block borrar %}
+  <h2>{{titulo}}</h2>
+<div class="main flex" id="forms">   
+    <form method="get" action="{% url ruta_enviar %}" class="search_bar">
+        <div id="searchUsers" class="instant-search">
+            <div class="instant-search__input-container">
+                <input name="nombre_producto" class="instant-search__input" type="text" spellcheck="false" placeholder="Buscar productos...">
+                <i class="material-icons instant-search__icon">search</i>                      
+            </div>               
+        </div>
+    </form>
+    <a href="agregar" class="a-agregar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16" id="boton-agregar">
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+        </svg>
+    </a>
+</div>
+{% endblock borrar %}
+</header>
+
+{% block contenido %}
+<div id="table" style=" flex: 1 0 auto;">
+            <table class="container">
+                <thead>
+                    <tr>
+                    <th><h1>PRODUCTO</h1></th>
+                        <th><h1>CANTIDAD</h1></th>
+                        <th><h1>REPONER</h1></th>
+                        <th><h1>PRECIO</h1></th>
+                <th><h1>OBSERVACION</h1></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in listado_productos %}
+            <tr>
+                <td>{{producto.nombre_producto}}</td>
+                <td>{{producto.cantidad}}</td>
+                <td>{{producto.reponer}}</td>
+                <td>{{producto.precio_individual}}</td>
+                <td>{{producto.observacion}}</td>
+                <td>
+                    <a href="actualizar/{{producto.id}}" style="color: white; padding-right: 10px; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book-fill" viewBox="0 0 16 16">
+                            <path d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                        </svg></a> 
+                        <a href="borrar/{{producto.id}}" style="color: white ;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock contenido %}
+
+
+
+<footer>
+    <div id="nubes">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+    </svg>
+    <div class="footer">
+        <p>Stock Manage JMS</p>
+    </div>
+</div>
+</footer>
+
+
+</body>
+</html>

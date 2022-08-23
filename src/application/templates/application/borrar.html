@@ -1,0 +1,17 @@
+{% extends "application/index.html" %}
+
+{% block titulo %}<title> Borrar Producto </title>{% endblock %}
+
+
+{% block contenido %}
+    <div class="main-contenido">
+    <form method="post"> {% csrf_token %}
+        <h1>Estas a punto de borrar {{producto}}</h1>
+        <h2>Seguro que quieres borrarlo?</h2>
+        <div class="wrap">
+            <button class="button">Borrar</button>
+        </div>
+    </form>
+    </div>
+{% endblock contenido %}
+

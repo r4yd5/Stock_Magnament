@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}<title> Home </title>{% endblock %}
+    <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
+    <link rel="stylesheet" href="{% static 'application/css/m.css' %}">
+</head>
+<body>
+    
+
+
+
+<header>
+    <div id="nav">
+        <nav id="nav-1">
+            <div class="div-navs">
+            <div style="text-align: start;">
+                <a class="link-1" href="{% url 'home' %}">STOCK MANAGE</a> 
+            </div>
+            <div style="text-align: center;">
+                <a class="link-1" href="{% url 'negocio_1_listar' %}">Negocio 1</a>
+                <a class="link-1" href="{% url 'negocio_2_listar' %}">Negocio 2</a>
+                <a class="link-1" href="{% url 'negocio_3_listar' %}">Negocio 3</a>
+            </div>
+            <div style="text-align: end;">
+                <a class="link-1" href="{% url 'logout' %}">Logout</a>
+                <a class="link-1" href="{% url 'profile'%}">{{request.user.username}}</a> 
+                {% if flag %}
+                <img class="avatar" src="{{avatar}}" alt="">
+                {% else %}
+                <img class="avatar" src="{% static 'application/no-avatar/default-user-image.png' %}" alt="">
+                {% endif %}
+            </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+{% block contenido %}
+<div class="main-contenido">
+    
+    <h1 style="font-weight: normal">Bienvenid@</h1>
+    <h1><b>{{user.username}}</b></h1>
+</div>
+{% endblock contenido %}
+
+    
+ 
+
+<footer>
+    <div id="nubes">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+        </svg>
+        <div class="footer">
+            <p>Stock Manage JMS</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
