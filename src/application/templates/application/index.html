@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block titulo %}<title> Home </title>{% endblock %}
     <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
-    <link rel="stylesheet" href="{% static 'application/css/m.css' %}">
+    <link rel="stylesheet" href="{% static 'application/css/z.css' %}">
 </head>
 <body>
     
@@ -30,8 +30,9 @@
                 <a class="link-1" href="{% url 'negocio_3_listar' %}">Negocio 3</a>
             </div>
             <div style="text-align: end;">
-                <a class="link-1" href="{% url 'logout' %}">Logout</a>
-                <a class="link-1" href="{% url 'profile'%}">{{request.user.username}}</a> 
+                <a class="link-1" href="{% url 'messages' %}">Mensajeria</a>
+                <a class="link-1" href="{% url 'profile'%}">Perfil</a> 
+                <a class="link-1" href="{% url 'logout' %}">Salir</a>  
                 {% if flag %}
                 <img class="avatar" src="{{avatar}}" alt="">
                 {% else %}
@@ -49,7 +50,7 @@
 <div class="main-contenido">
     
     <h1 style="font-weight: normal">Bienvenid@</h1>
-    <h1><b>{{user.username}}</b></h1>
+    <h1><b>{{user.username.capitalize}}</b></h1>
 </div>
 {% endblock contenido %}
 

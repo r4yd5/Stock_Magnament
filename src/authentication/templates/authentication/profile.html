@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block titulo %}<title> Perfil de Usuario </title>{% endblock %}  
     <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
-    <link href="{% static 'authentication/css/s.css' %}" rel="stylesheet">
+    <link href="{% static 'authentication/css/h.css' %}" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper fadeInDown">
@@ -18,7 +18,10 @@
 
         <!-- Tabs Titles -->
             <a href="{% url 'profile' %}">
-                <h2 class="active"> Datos del usuario </h2>
+                <h2 class="active"> Perfil </h2>
+            </a>
+            <a href="{% url 'messages' %}">
+                <h2 class="inactive underlineHover"> Mensajeria </h2>
             </a>
             <a href="{% url 'home' %}">
                 <h2 class="inactive underlineHover"> Inicio </h2>
@@ -37,13 +40,13 @@
             <a href="{% url 'delete_avatar' %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="borrar avatar" style="margin: 10px;"></a>
         </div>
             <h3>USERNAME:</h3>
-            <p>{{request.user.username}}</p>
+            <p>{{request.user.username.capitalize}}</p>
             <h3>EMAIL:</h3>
             <p>{{request.user.email}}</p>
             <h3>NOMBRE:</h3>
-            <p>{{request.user.first_name}}</p>
+            <p>{{request.user.first_name.title}}</p>
             <h3>APELLIDO:</h3>
-            <p>{{request.user.last_name}}</p>        
+            <p>{{request.user.last_name.title}}</p>        
             <h3>SITIO WEB: </h3>
             <p><a href="{{request.user.sitio_link}}">{{request.user.sitio_link}}</a></p>
             <h3>DESCRIPCION:</h3>

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block titulo %}<title> {{titulo}} </title>{% endblock %}
-    <link rel="stylesheet" href="{% static 'application/css/l.css'%}">
+    <link rel="stylesheet" href="{% static 'application/css/ls.css'%}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
 </head>
@@ -27,8 +27,9 @@
                 <a class="link-1" href="{% url 'negocio_3_listar' %}">Negocio 3</a>
             </div>
             <div style="text-align: end;">
-                <a class="link-1" href="{% url 'logout' %}">Logout</a>  
-                <a class="link-1" href="{% url 'profile'%}">{{request.user.username}}</a>  
+                <a class="link-1" href="{% url 'messages' %}">Mensajeria</a>
+                <a class="link-1" href="{% url 'profile'%}">Perfil</a> 
+                <a class="link-1" href="{% url 'logout' %}">Salir</a>  
                 {% if flag %}
                     <img class="avatar" src="{{avatar}}" alt="">
                 {% else %}

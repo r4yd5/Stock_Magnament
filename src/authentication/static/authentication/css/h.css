@@ -295,3 +295,81 @@ html{
 .form-img{
   display: none;
 }
+
+
+.container-mensajes{
+  text-align: left;
+  margin: auto;
+  margin-bottom: 20px;
+
+    background: #8f8f8f;
+
+
+
+    border: 2px solid #666;
+    border-radius: 20px;
+
+  width: 80%;
+}
+
+.mensajes{
+  padding-left: 15px;
+}
+
+.p {
+  border: solid;
+  margin-right: 100px;
+  overflow-wrap: break-word;
+  word-break:break-all;
+  word-break:keep-all;
+  padding-left: 10px;
+  background: #c9c9c9;
+  border: 2px solid #666;
+  border-radius: 20px;
+}
+
+
+
+
+.input-mensaje {
+    text-align: left !important;
+    padding: 10px 10px !important;
+    margin: auto !important;
+    width: 290px !important;
+}
+
+
+.form-mensaje{
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px
+}
+
+
+.button {
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  font-weight: 500 !important;
+  color: #000 !important;
+  background-color: #fff !important;
+  border: none !important;
+  border-radius: 45px !important;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease 0s !important;
+  cursor: pointer !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 5px !important;
+  }
+
+.button:hover {
+  background-color: white !important;
+  box-shadow: 0px 5px 10px #13151a !important;
+  color: black !important;
+  transform: translateY(-7px) !important;
+}
+

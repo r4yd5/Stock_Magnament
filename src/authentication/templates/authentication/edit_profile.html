@@ -10,9 +10,9 @@
 <form method="post">
     {% csrf_token %}
     <h3>NOMBRE:</h3>
-    <p>{{form.first_name}}</p>
+    <p>{{form.first_name.title}}</p>
     <h3>APELLIDO:</h3>
-    <p>{{form.last_name}}</p>
+    <p>{{form.last_name.title}}</p>
     <h3>EMAIL:</h3>
     <p>{{form.email}}</p> 
     <h3>DESCRIPCION:</h3>
