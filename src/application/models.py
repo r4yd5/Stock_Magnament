@@ -8,6 +8,7 @@ class Negocio_1(models.Model):
     precio_individual = models.IntegerField()
     reponer = models.IntegerField()
     observacion = models.CharField(max_length=10000)
+    hora_cargado = models.CharField(max_length=20)
 
     def __str__(self) -> str:
         return f'ID: {self.id} - Nombre: {self.nombre_producto}' 
@@ -24,7 +25,8 @@ class Negocio_2(models.Model):
     precio_individual = models.IntegerField()
     reponer = models.IntegerField()
     observacion = models.CharField(max_length=10000)
-    
+    hora_cargado = models.CharField(max_length=20)
+
     def __str__(self) -> str:
         return f'ID: {self.id} - Nombre: {self.nombre_producto}' 
 
@@ -40,7 +42,8 @@ class Negocio_3(models.Model):
     precio_individual = models.IntegerField()
     reponer = models.IntegerField()
     observacion = models.CharField(max_length=10000)
-    
+    hora_cargado = models.CharField(max_length=20)
+
     def __str__(self) -> str:
         return f'ID: {self.id} - Nombre: {self.nombre_producto}' 
 

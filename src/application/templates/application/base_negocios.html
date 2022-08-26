@@ -76,16 +76,18 @@
                     <th><h1>REPONER</h1></th>
                     <th><h1>PRECIO</h1></th>
                     <th><h1>OBSERVACION</h1></th>
+                    <th><h1>HORA CARGADO</h1></th>
                     </tr>
-        </thead>
-        <tbody>
+                </thead>
+                <tbody>
             {% for producto in listado_productos %}
             <tr>
                 <td>{{producto.nombre_producto}}</td>
                 <td>{{producto.cantidad}}</td>
                 <td>{{producto.reponer}}</td>
                 <td>{{producto.precio_individual}}</td>
-                <td>{{producto.observacion}}</td>
+                <td>{{producto.observacion}}</td>default=''
+                <td>{{producto.hora_cargado}}</td>
                 <td>
                     <a href="actualizar/{{producto.id}}" style="color: white; padding-right: 10px; ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book-fill" viewBox="0 0 16 16">

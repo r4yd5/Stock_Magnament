@@ -3,9 +3,17 @@ from application.models import *
 from application.forms import *
 from authentication.models import *
 from django.shortcuts import render, redirect
+import datetime
+
+object_datetime = datetime.datetime.now()
+hora = str(object_datetime)
+x = slice(19)
+hora = hora[x]
+        
 
 #listar productos
 def listar_productos(request,**kwargs):
+    global hora
     avatar = Avatar.objects.filter(usuario = request.user.id).last()
     
     listado_productos = kwargs['modelo'].objects.all()
@@ -36,6 +44,7 @@ def listar_productos(request,**kwargs):
  
 #agregar productos
 def crear_productos(request,**kwargs):
+    global hora
     avatar = Avatar.objects.filter(usuario = request.user.id).last()
     contexto = {
         'titulo':f'Agregue un producto al {kwargs["titulo"]}',
@@ -56,18 +65,20 @@ def crear_productos(request,**kwargs):
         if form.is_valid():
             data = form.cleaned_data
 
-            Producto = data.get('nombre_producto')
-            Cantidad = data.get('cantidad')
-            Precio = data.get('precio_individual')
-            Reponer = data.get('reponer')
-            Observacion = data.get('observacion')
+            producto = data.get('nombre_producto')
+            cantidad = data.get('cantidad')
+            precio = data.get('precio_individual')
+            reponer = data.get('reponer')
+            observacion = data.get('observacion')
+            hora_cargado = hora
         
             producto_agregado = kwargs['modelo'](
-                nombre_producto=Producto,
-                cantidad=Cantidad,
-                precio_individual=Precio,
-                reponer=Reponer,
-                observacion=Observacion
+                nombre_producto=producto,
+                cantidad=cantidad,
+                precio_individual=precio,
+                reponer=reponer,
+                observacion=observacion,
+                hora_cargado = hora_cargado
                 )
 
             producto_agregado.save()
@@ -80,6 +91,7 @@ def crear_productos(request,**kwargs):
 
 #actualizar productos
 def actualizar_producto(request,id_producto,**kwargs):
+    global hora
     producto = kwargs['modelo'].objects.get(id=id_producto)
     
     avatar = Avatar.objects.filter(usuario = request.user.id).last()
@@ -113,6 +125,7 @@ def actualizar_producto(request,id_producto,**kwargs):
             producto.precio_individual = data.get('precio_individual')
             producto.reponer = data.get('reponer')
             producto.observacion = data.get('observacion')
+            producto.hora_cargado = hora
 
             producto.save()
 
