@@ -400,3 +400,13 @@ p {
   border-radius: 50%;
   background-size: 100% auto;
 }
+
+.icon-stock-left{
+  float: left;
+  padding: 10px;
+}
+
+.a-footer-about{
+  color:#92badd;
+  text-decoration: none;
+}

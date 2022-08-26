@@ -17,14 +17,27 @@ def mensajes(request):
         if form.is_valid():
             data = form.cleaned_data
 
+            object_datetime = datetime.datetime.now()
+            hora = str(object_datetime)
+            x = slice(19)
+            hora = hora[x]
+
+
             usuario = request.user.username
             mensaje = data.get('mensaje')
-
-            enviar_mensaje = Messages(usuario= usuario, mensaje=mensaje)
+            hora_enviado = hora
+            enviar_mensaje = Messages(usuario= usuario, mensaje=mensaje, hora_enviado= hora_enviado)
 
             enviar_mensaje.save()
 
             return redirect('messages')
         else:
             return render(request, 'messages/mensajes.html',{'form':FormMessages(),'error':'Mensaje no valido'})
-            
+        
+def borrar_mensajes(request,id_mensaje):
+    mensaje_a_borrar = Messages.objects.get(id=id_mensaje)
+    if request.method == 'GET':
+        return render(request, 'messages/borrar_mensaje.html',{'msj':mensaje_a_borrar})
+    else:
+        mensaje_a_borrar.delete()
+        return redirect('messages')

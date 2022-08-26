@@ -5,6 +5,7 @@ from application.views import *
 
 urlpatterns = [
     path('',index,name='home'),
+    path('about',sobre_mi,name="about"),
 
     #listas productos negocios
     path('negocio_1/' ,negocio_1_listar, name='negocio_1_listar'),

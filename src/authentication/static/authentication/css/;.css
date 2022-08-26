@@ -318,11 +318,10 @@ html{
 
 .p {
   border: solid;
-  margin-right: 100px;
   overflow-wrap: break-word;
   word-break:break-all;
-  word-break:keep-all;
   padding-left: 10px;
+  padding-right: 10px;
   background: #c9c9c9;
   border: 2px solid #666;
   border-radius: 20px;

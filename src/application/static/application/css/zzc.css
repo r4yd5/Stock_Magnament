@@ -211,7 +211,6 @@ h2{
 
 .button:hover {
   background-color: white;
-  box-shadow: 0px 15px 20px #475063;
   color: black;
   transform: translateY(-7px);
 }
@@ -231,3 +230,48 @@ h2{
   background-size: 100% auto;
 }
 
+.about-p{
+  width: 50%;
+  margin: auto;
+  color: white !important;
+}
+
+.p-main-content-about{
+  color: white !important;
+}
+
+.div-icons-about{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.a-about{
+  color: white;
+  box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.a-about:hover {
+
+ 
+  transform: translateY(-7px);
+}
+
+.icon-stock-left{
+  float: left;
+  padding: 10px;
+}
+
+.icon-stock-right{
+  float: right;
+  padding: 10px;
+}
+
+
+.a-footer-about{
+  color:#92badd;
+  text-decoration: none;
+}

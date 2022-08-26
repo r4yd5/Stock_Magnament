@@ -22,6 +22,11 @@ def index(request):
         contexto = {'link1':'home','link2':'negocios','link3':'negocio_3'}
         return render(request,'application/index.html',contexto)
 
+
+def sobre_mi(request):
+    return render(request, 'application/about.html')
+
+
 #VISTAS NEGOCIO 1
 #listar productos
 @login_required
