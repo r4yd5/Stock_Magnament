@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block titulo %}<title> {{titulo}} </title>{% endblock %}
-    <link rel="stylesheet" href="{% static 'application/css/1.css'%}">
+    <link rel="stylesheet" href="{% static 'application/css/2.css'%}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
 </head>
@@ -86,7 +86,7 @@
                 <td>{{producto.cantidad}}</td>
                 <td>{{producto.reponer}}</td>
                 <td>{{producto.precio_individual}}</td>
-                <td>{{producto.observacion}}</td>default=''
+                <td>{{producto.observacion}}</td>
                 <td>{{producto.hora_cargado}}</td>
                 <td>
                     <a href="actualizar/{{producto.id}}" style="color: white; padding-right: 10px; ">
