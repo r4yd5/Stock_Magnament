@@ -234,10 +234,12 @@ h2{
   width: 50%;
   margin: auto;
   color: white !important;
+  font-weight: bold;
 }
 
 .p-main-content-about{
   color: white !important;
+  
 }
 
 .div-icons-about{
@@ -255,8 +257,6 @@ h2{
 }
 
 .a-about:hover {
-
- 
   transform: translateY(-7px);
 }
 
@@ -272,6 +272,9 @@ h2{
 
 
 .a-footer-about{
-  color:#92badd;
   text-decoration: none;
+}
+
+.div-p-about{
+  text-align: left;
 }
