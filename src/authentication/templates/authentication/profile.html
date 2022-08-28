@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block titulo %}<title> Perfil de Usuario </title>{% endblock %}  
     <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
-    <link href="{% static 'authentication/css/;.css' %}" rel="stylesheet">
+    <link href="{% static 'authentication/css/1.css' %}" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper fadeInDown">
@@ -50,6 +50,7 @@
             <h3>SITIO WEB: </h3>
             <p><a href="{{request.user.sitio_link}}">{{request.user.sitio_link}}</a></p>
             <h3>DESCRIPCION:</h3>
+            {{request.user.descripcion | safe}}
             <a href="{% url 'edit_profile'  %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="Editar datos" style="margin: 10px;"></a>
             <a href="{% url 'change_password' %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="Cambiar contraseña"></a>
             

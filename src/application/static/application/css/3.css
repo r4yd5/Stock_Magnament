@@ -278,3 +278,9 @@ h2{
 .div-p-about{
   text-align: left;
 }
+
+.main-contenido-about{
+  text-align: center;
+  height: 100%;
+  display: contents;
+}

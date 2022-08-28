@@ -327,7 +327,10 @@ html{
   border-radius: 20px;
 }
 
-
+.django-ckeditor-widget{
+  display: flex !important;
+  margin: 10px;
+}
 
 
 .input-mensaje {

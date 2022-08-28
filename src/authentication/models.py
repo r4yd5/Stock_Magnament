@@ -1,11 +1,16 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import os
 from final_project import settings
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class User(AbstractUser):
     sitio_link = models.CharField(max_length=155, blank=True)
+    descripcion = RichTextField()
+
+    
 
 class Avatar(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)

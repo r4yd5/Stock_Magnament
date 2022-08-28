@@ -83,6 +83,7 @@ def editar_perfil(request):
             usuario.sitio_link = data.get('sitio_link')
             usuario.first_name = data.get('first_name')
             usuario.last_name = data.get('last_name')
+            usuario.descripcion = data.get('descripcion')
 
             usuario.save()
             

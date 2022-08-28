@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'application',
     'authentication',
-    'messages'
+    'messages',
+    'ckeditor'
+
 ]
 
 MIDDLEWARE = [
@@ -136,3 +138,5 @@ AUTH_USER_MODEL = 'authentication.User'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+

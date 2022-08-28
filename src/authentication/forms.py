@@ -1,8 +1,10 @@
+
+from email.policy import default
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from authentication.models import User
 from django.forms import Form, IntegerField, CharField, ImageField
-
+from ckeditor.widgets import CKEditorWidget
 
 
 
@@ -32,14 +34,14 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomUserEditingForm(UserCreationForm):
-    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Nombre'}),required=False)
-    first_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Nombre'}))
-    last_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Apellido'}))
+    first_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Nombre'}), required=False)
+    last_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Apellido'}), required=False)
     sitio_link = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Link'}), required=False)
-    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Email'}))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'fadeIn third', 'placeholder': 'Contraseña'}),required=False)
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'fadeIn third', 'placeholder': 'Confirmar contraseña'}),required=False)
-
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Email'}), required=False)
+    descripcion = forms.CharField(widget=CKEditorWidget(),required=False)
+    password1 = forms.CharField(required=False)
+    password2 = forms.CharField(required=False)
+    
 
     class Meta:
         model = User
@@ -47,7 +49,6 @@ class CustomUserEditingForm(UserCreationForm):
         help_texts = {k:'' for k in fields}
 
 class ChangePassword(UserCreationForm):
-    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'fadeIn third', 'placeholder': 'Nombre'}),required=False)
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'fadeIn third', 'placeholder': 'Contraseña'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'fadeIn third', 'placeholder': 'Confirmar contraseña'}))
 
