@@ -51,6 +51,7 @@ h2 {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
+  word-wrap: break-word
 }
 
 #formFooter {
@@ -316,7 +317,7 @@ html{
   padding-left: 15px;
 }
 
-.p {
+.p-messages {
   border: solid;
   overflow-wrap: break-word;
   word-break:break-all;
@@ -325,6 +326,11 @@ html{
   background: #c9c9c9;
   border: 2px solid #666;
   border-radius: 20px;
+  
+}
+
+.p-delete{
+  width: 300px;
 }
 
 .django-ckeditor-widget{
@@ -375,3 +381,31 @@ html{
   transform: translateY(-7px) !important;
 }
 
+.p-label{
+  font-size: 14px;
+}
+
+.h1-error{
+  color: red;
+}
+
+.input-profile{
+  margin: 10px !important;
+}
+
+.p-data-profile{
+  padding: 10px;
+}
+
+.div-p-data-profile{
+  border: 2px solid #666;
+  background: #c9c9c9;
+  border-radius: 20px;
+  margin-inline: 10px;
+  padding-inline: 10px;
+}
+
+.td-button-delete-message{
+  padding-bottom: 18px;
+  vertical-align: bottom;
+}

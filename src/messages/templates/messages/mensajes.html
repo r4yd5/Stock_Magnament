@@ -1,6 +1,7 @@
 {% extends "authentication/base.html" %}
 
 {% block tabs %}
+
     <a href="{% url 'messages' %}"><h2 class="active"> Mensajeria </h2></a>
     <a href="{% url 'profile' %}"><h2 class="inactive underlineHover"> Perfil </h2></a>
     <a href="{% url 'home' %}"><h2 class="inactive underlineHover"> Inicio </h2></a>
@@ -9,40 +10,53 @@
 
 {% block forms %}
 
-<div class="container-mensajes">
-    <div class="mensajes">
-        <table>
-        {% for m in mensj %} 
-            <tbody>
-                <tr>
-                    <td><p class="p"><b>{{m.usuario.capitalize}}:</b> {{m.mensaje}} <br> <b>{{m.hora_enviado}}</b></p></td>
-                    <td style="padding-bottom: 18px; vertical-align: bottom;" >              
-                        <a href="delete_message/{{m.id}}">
-                            <button type="submit" class="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-                                </svg>
-                            </button>
-                        </a>                  
-                    </td>
-                </tr>
-            </tbody>    
-        {% endfor %}
-        </table>    
-        <form method="post" class="form-mensaje"> {% csrf_token %}
-            {{form.mensaje}}
-            <div>
-                <button type="submit" class="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-                    </svg>
-                </button>
-            </div>
-        </form>        
+    <div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class={{ message.tags }}>
+                    <h1>{{ message }}</h1>
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
-</div>
-{% if error %}
-    {{error}}
-{% endif %}
+    <div class="container-mensajes">
+        <div class="mensajes">
+            <table>
+            {% for m in mensj %} 
+                <tbody>
+                    <tr>
+                        <td><p class="p-messages"><b>{{m.usuario.capitalize}}:</b> {{m.mensaje}} <br> <b>{{m.hora_enviado}}</b></p></td>
+                        <td class="td-button-delete-message" >              
+                            <a href="delete_message/{{m.id}}">
+                                <button type="submit" class="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                    </svg>
+                                </button>
+                            </a>                  
+                        </td>
+                    </tr>
+                </tbody>    
+            {% endfor %}
+            </table>    
+            <form method="post" class="form-mensaje"> {% csrf_token %}
+                {{form.mensaje}}
+                <div>
+                    <button type="submit" class="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>        
+        </div>
+    </div>
+
+    {% if error %}
+
+        {{error}}
+
+    {% endif %}
+    
 {% endblock forms %}
         

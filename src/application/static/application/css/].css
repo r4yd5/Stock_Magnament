@@ -410,3 +410,31 @@ p {
 .a-footer-about{
   text-decoration: none;
 }
+
+.div-table{
+  flex: 1 0 auto;
+}
+
+.td-button{
+  width: 1% !important;
+}
+
+.button-td{
+  cursor: pointer;
+}
+
+.div-navs-1{
+  text-align: start;
+}
+
+.div-navs-2{
+  text-align: center;
+}
+
+.div-navs-3{
+  text-align: end;
+}
+
+.td-a{
+  padding-right: 10px;
+}

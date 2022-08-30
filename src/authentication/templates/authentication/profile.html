@@ -9,14 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block titulo %}<title> Perfil de Usuario </title>{% endblock %}  
     <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
-    <link href="{% static 'authentication/css/1.css' %}" rel="stylesheet">
+    <link href="{% static 'authentication/css/5.css' %}" rel="stylesheet">
 </head>
+
 <body>
     <div class="wrapper fadeInDown">
-        <div id="formContent" style="word-wrap: break-word">
-
-
-        <!-- Tabs Titles -->
+        <div id="formContent">
             <a href="{% url 'profile' %}">
                 <h2 class="active"> Perfil </h2>
             </a>
@@ -26,46 +24,51 @@
             <a href="{% url 'home' %}">
                 <h2 class="inactive underlineHover"> Inicio </h2>
             </a>
-            
 
-        {% block editar_data %}
+            {% block editar_data %}
           
-        <div>
-            {% if flag %}
-                <img class="avatar" src="{{avatar}}">
-            {% else %}
-                <img class="avatar" src="{% static 'application/no-avatar/default-user-image.png' %}">
-            {% endif %}
-            <a href="{% url 'change_avatar' %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="Cambiar avatar" style="margin: 10px;"></a>
-            <a href="{% url 'delete_avatar' %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="borrar avatar" style="margin: 10px;"></a>
-        </div>
-            <h3>USERNAME:</h3>
-            <p>{{request.user.username.capitalize}}</p>
-            <h3>EMAIL:</h3>
-            <p>{{request.user.email}}</p>
-            <h3>NOMBRE:</h3>
-            <p>{{request.user.first_name.title}}</p>
-            <h3>APELLIDO:</h3>
-            <p>{{request.user.last_name.title}}</p>        
-            <h3>SITIO WEB: </h3>
-            <p><a href="{{request.user.sitio_link}}">{{request.user.sitio_link}}</a></p>
-            <h3>DESCRIPCION:</h3>
-            {{request.user.descripcion | safe}}
-            <a href="{% url 'edit_profile'  %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="Editar datos" style="margin: 10px;"></a>
-            <a href="{% url 'change_password' %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="Cambiar contraseña"></a>
+                <div>
+                    {% if flag %}
+                        <img class="avatar" src="{{avatar}}">
+                    {% else %}
+                        <img class="avatar" src="{% static 'application/no-avatar/default-user-image.png' %}">
+                    {% endif %}
+                    <a href="{% url 'change_avatar' %}" class="boton-perfil"><input type="submit" class="fadeIn fourth input-profile" value="Cambiar avatar" ></a>
+                    <a href="{% url 'delete_avatar' %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="borrar avatar"></a>
+                </div>
+                    <h3>USERNAME:</h3>
+                    <div class="div-p-data-profile">
+                        <p class="p-data-profile">{{request.user.username.capitalize}}</p>
+                    </div>
+                    <h3>EMAIL:</h3>
+                    <div class="div-p-data-profile">
+                        <p class="p-data-profile">{{request.user.email}}</p>
+                    </div>
+                    <h3>NOMBRE:</h3>
+                    <div class="div-p-data-profile">
+                        <p class="p-data-profile">{{request.user.first_name.title}}</p>
+                    </div>
+                    <h3>APELLIDO:</h3>
+                    <div class="div-p-data-profile">
+                        <p class="p-data-profile">{{request.user.last_name.title}}</p>    
+                    </div> 
+                    <h3>SITIO WEB: </h3>
+                    <div class="div-p-data-profile">   
+                        <p class="p-data-profile"><a href="{{request.user.sitio_link}}">{{request.user.sitio_link}}</a></p>
+                    </div>
+                    <h3>DESCRIPCION:</h3>
+                    <div class="div-p-data-profile">          
+                        {{request.user.descripcion | safe}}  
+                    </div>            
+                    <a href="{% url 'edit_profile'  %}" class="boton-perfil"><input type="submit" class="fadeIn fourth input-profile" value="Editar datos" ></a>
+                    <a href="{% url 'change_password' %}" class="boton-perfil"><input type="submit" class="fadeIn fourth" value="Cambiar contraseña"></a>
             
-        {% endblock editar_data %}
-            
-            
-            
-            <!-- footer -->
+            {% endblock editar_data %}
             
             <div id="formFooter">
-            
-          <p>Stock Magnament<br><br> <a href="{% url 'about' %}" >About</a></p>
-          </div>   
+                <p>Stock Magnament<br><br> <a href="{% url 'about' %}" >About</a></p>
+            </div>   
         </div>
     </div>
-
 </body>
 </html>

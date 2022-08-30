@@ -1,5 +1,7 @@
 STOCK MANAGE
 
+Desarrollado completamente por: JUAN MARTIN SANCHEZ
+
 El sistema le permitira al admnistrador de un negocio poder controlar y gestionar la existencia de su stock, ademas de otras funciones.
 
 Para su uso:
@@ -23,10 +25,11 @@ Una vez cargado el producto puede seguir añadiendo o volver a uno de los 3 nego
 El sitio cuenta con sistemas de perfiles y mensajeria.
 
 En el apartado de perfiles el usuario podra modificar su informacion:
-* NOMBRE:
-* APELLIDO:
-* EMAIL:
-* SITIO PERSONAL:
-* DESCRIPCION:
+* AVATAR
+* NOMBRE
+* APELLIDO
+* EMAIL
+* SITIO PERSONAL
+* DESCRIPCION
 
-En el apartado de mensajeria el usuario podra visualizar los mensajes de otros usuarios u enviar los suyos.
+En el apartado de mensajeria el usuario podra visualizar los mensajes de otros usuarios, enviar los suyos o eliminarlos.

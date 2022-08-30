@@ -9,35 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block titulo %}{% endblock %} 
     <link rel="shortcut icon" href="{% static 'application/icon/card-checklist.svg' %}">
-    <link href="{% static 'authentication/css/;.css' %}" rel="stylesheet">
+    <link href="{% static 'authentication/css/5.css' %}" rel="stylesheet">
 </head>
+
 <body>
     <div class="wrapper fadeInDown">
         <div id="formContent">
 
         {% block tabs %}
-        <!-- Tabs Titles -->
+
             <a href=""><h2 class="active"> Iniciar Sesion </h2></a>
             <a href=""><h2 class="inactive underlineHover"> Registrase </h2></a>
+
         {% endblock tabs %}
           
-
-          <!-- Form -->
-       
         {% block forms %}
+
         {% endblock forms %}
-        
-          <!-- footer -->
-          {% block footer %}
+
+        {% block footer %}
+
           <div id="formFooter">
-          <p>Stock Magnament<br><br> <a href="{% url 'about' %}" >About</a></p>
+            <p>Stock Magnament<br><br> <a href="{% url 'about' %}" >About</a></p>
           </div>
-          {% endblock footer %}
-          
-          
+
+        {% endblock footer %}
 
         </div>
     </div>
-
 </body>
 </html>

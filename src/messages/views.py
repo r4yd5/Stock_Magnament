@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
 from messages.forms import *
+from django.contrib.messages import error
 from messages.models import Messages
 from django.contrib.auth.decorators import login_required
 import datetime
@@ -29,15 +29,20 @@ def mensajes(request):
             enviar_mensaje = Messages(usuario= usuario, mensaje=mensaje, hora_enviado= hora_enviado)
 
             enviar_mensaje.save()
-
+            
             return redirect('messages')
         else:
             return render(request, 'messages/mensajes.html',{'form':FormMessages(),'error':'Mensaje no valido'})
-        
+
+@login_required       
 def borrar_mensajes(request,id_mensaje):
     mensaje_a_borrar = Messages.objects.get(id=id_mensaje)
     if request.method == 'GET':
         return render(request, 'messages/borrar_mensaje.html',{'msj':mensaje_a_borrar})
     else:
-        mensaje_a_borrar.delete()
-        return redirect('messages')
+        if mensaje_a_borrar.usuario == request.user.username or request.user.is_staff == 1:
+            mensaje_a_borrar.delete()
+            return redirect('messages')
+        else:
+            error(request, 'NO TIENES PERMISO PARA BORRAR ESTE MENSAJE')
+            return redirect('messages')

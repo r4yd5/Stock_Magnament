@@ -22,7 +22,7 @@ def index(request):
         contexto = {'link1':'home','link2':'negocios','link3':'negocio_3'}
         return render(request,'application/index.html',contexto)
 
-
+#VISTA ABOUT
 def sobre_mi(request):
     return render(request, 'application/about.html')
 

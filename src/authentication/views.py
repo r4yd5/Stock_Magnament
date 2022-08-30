@@ -66,7 +66,8 @@ def editar_perfil(request):
         'first_name':request.user.first_name,
         'last_name':request.user.last_name,
         'email':request.user.email,
-        'sitio_web':request.user.sitio_link,
+        'sitio_link':request.user.sitio_link,
+        'descripcion':request.user.descripcion
     }
 
     if request.method == 'GET':

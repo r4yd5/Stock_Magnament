@@ -284,3 +284,19 @@ h2{
   height: 100%;
   display: contents;
 }
+
+.div-header-nav-text{
+  text-align: center;
+}
+
+.div-navs-1{
+  text-align: start;
+}
+
+.div-navs-2{
+  text-align: center;
+}
+
+.div-navs-3{
+  text-align: end;
+}

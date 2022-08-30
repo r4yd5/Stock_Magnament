@@ -1,19 +1,26 @@
 {% extends "authentication/base.html" %}
 
-{% block titulo %}<title> Registrarse </title>{% endblock %} 
+{% block titulo %}
+
+    <title> Registrarse </title>
+    
+{% endblock %} 
 
 {% block tabs %}
+
     <a href='{% url "login" %}'><h2 class="inactive underlineHover"> Iniciar Sesion </h2></a>
     <a href='{% url "signup" %}'><h2 class="active"> Registrase </h2></a>
+
 {% endblock tabs %}
 
 
 
 {% block forms %}
+    {% if error %}
 
-{% if error %}
-    <p style="color: rgb(170, 16, 16);">{{error}}</p>
-{% endif %}
+        <h1 class="h1-error">{{error}}</h1>
+
+    {% endif %}
 
     <form method="post"> 
         {% csrf_token %}
@@ -23,10 +30,12 @@
         {{form.password2}}
         <input type="submit" class="fadeIn fourth" value="Registrase">
     </form>
+
 {% endblock forms %}
 
 
 {% block footer %}
+
     <div id="formFooter">
         <p>El nombre de usuario menor a 150 caracteres</p>
         <p>La contraseña no puede ser similar a tu informacion</p>
@@ -34,4 +43,5 @@
         <p>La contraseña no debe ser comun</p>
         <p>La contraseña no puede ser enteramente numerica</p>
     </div>
+    
 {% endblock footer %}

@@ -1,16 +1,19 @@
 {% extends "authentication/profile.html" %}
 
-{% block titulo %}<title> Cambiar Avatar </title>{% endblock %}
+{% block titulo %}
 
+    <title> Cambiar Avatar </title>
+    
+{% endblock %}
 
 {% block editar_data %}
 
-<form method="post" enctype="multipart/form-data"> {% csrf_token %}
-    <label>
-    <p class="fadeIn fourth"  id="boton-imagen" style="font-size: 14px;">cargar imagen</p>
-    {{form.image}}
-    </label>
-<input type="submit" class="fadeIn fourth" value="Cambiar" >
-</form>
+    <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+        <label>
+            <p class="fadeIn fourth p-label"  id="boton-imagen">cargar imagen</p>
+            {{form.image}}
+        </label>
+        <input type="submit" class="fadeIn fourth" value="Cambiar" >
+    </form>
 
 {% endblock editar_data %}
