@@ -20,8 +20,8 @@ nav{
     font-family: 'Lato', sans-serif;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   }
-  #nav-1 {
-    background: #323947;
+#nav-1 {
+  background: #323947;
   }
   
   
@@ -437,4 +437,8 @@ p {
 
 .td-a{
   padding-right: 10px;
+}
+
+.h1-error{
+  color: red;
 }

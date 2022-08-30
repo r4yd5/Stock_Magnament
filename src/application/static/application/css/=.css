@@ -300,3 +300,7 @@ h2{
 .div-navs-3{
   text-align: end;
 }
+
+.h1-error{
+  color: red;
+}

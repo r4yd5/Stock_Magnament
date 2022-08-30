@@ -47,7 +47,7 @@ def crear_productos(request,**kwargs):
     global hora
     avatar = Avatar.objects.filter(usuario = request.user.id).last()
     contexto = {
-        'titulo':f'Agregue un producto al {kwargs["titulo"]}',
+        'titulo':kwargs["titulo"]
         }           
     try:
         contexto['flag'] = True
@@ -95,7 +95,10 @@ def actualizar_producto(request,id_producto,**kwargs):
     producto = kwargs['modelo'].objects.get(id=id_producto)
     
     avatar = Avatar.objects.filter(usuario = request.user.id).last()
-    contexto ={}
+    contexto ={
+        'nombre_negocio':kwargs['nombre_negocio'],
+        'producto':producto
+        }
     try:
         contexto['flag'] = True
         contexto['avatar'] = avatar.imagen.url

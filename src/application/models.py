@@ -12,7 +12,7 @@ class Negocio_1(models.Model):
     hora_cargado = models.CharField(max_length=20)
 
     def __str__(self) -> str:
-        return f'ID: {self.id} - Nombre: {self.nombre_producto}' 
+        return f'Nombre: {self.nombre_producto}' 
 
 
     class Meta:
@@ -29,7 +29,7 @@ class Negocio_2(models.Model):
     hora_cargado = models.CharField(max_length=20)
 
     def __str__(self) -> str:
-        return f'ID: {self.id} - Nombre: {self.nombre_producto}' 
+        return f'Nombre: {self.nombre_producto}' 
 
     class Meta:
         verbose_name = 'Producto'
@@ -46,7 +46,7 @@ class Negocio_3(models.Model):
     hora_cargado = models.CharField(max_length=20)
 
     def __str__(self) -> str:
-        return f'ID: {self.id} - Nombre: {self.nombre_producto}' 
+        return f'Nombre: {self.nombre_producto}' 
 
     class Meta:
         verbose_name = 'Producto'

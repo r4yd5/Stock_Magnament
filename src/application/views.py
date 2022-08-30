@@ -5,14 +5,11 @@ from application.models import *
 from authentication.models import *
 from application.code_CRUD import *
 from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.models import User
-
 
 #VISTA HOME
 @login_required
 def index(request):
 
-    
     avatar = Avatar.objects.filter(usuario = request.user.id).last()
     
     try:
@@ -25,7 +22,6 @@ def index(request):
 #VISTA ABOUT
 def sobre_mi(request):
     return render(request, 'application/about.html')
-
 
 #VISTAS NEGOCIO 1
 #listar productos
@@ -43,6 +39,7 @@ def negocio_1_listar(request):
     pagina3= 'NEGOCIO 3',
     ruta_enviar= 'negocio_1_listar',
     )
+
 #agregar productos
 @login_required
 def negocio_1_agregar(request):
@@ -51,7 +48,8 @@ def negocio_1_agregar(request):
     titulo= 'Negocio 1', 
     modelo= Negocio_1,
     nombre_vista= 'negocio_1_agregar'
-    )    
+    )  
+
 #actualizar productos
 @login_required
 def negocio_1_actualizar(request,id_producto):
@@ -60,7 +58,9 @@ def negocio_1_actualizar(request,id_producto):
     modelo= Negocio_1,
     nombre_vista= 'negocio_1_listar' ,  
     id_producto= id_producto,
+    nombre_negocio= 'Negocio 1'
     )
+
 #borrar productos
 @login_required
 def negocio_1_borrar(request,id_producto):
@@ -70,7 +70,6 @@ def negocio_1_borrar(request,id_producto):
     nombre_vista= 'negocio_1_listar',
     id_producto= id_producto
     )
-
 
 #VISTAS NEGOCIO 2
 #listar productos
@@ -88,6 +87,7 @@ def negocio_2_listar(request):
     pagina3= 'NEGOCIO 3',
     ruta_enviar= 'negocio_2_listar'
     )
+
 #agregar productos
 @login_required
 def negocio_2_agregar(request):
@@ -97,6 +97,7 @@ def negocio_2_agregar(request):
     modelo= Negocio_2,
     nombre_vista= 'negocio_2_agregar'
     )    
+
 #actualizar productos
 @login_required
 def negocio_2_actualizar(request,id_producto):
@@ -104,8 +105,10 @@ def negocio_2_actualizar(request,id_producto):
     request= request,
     modelo= Negocio_2,
     nombre_vista= 'negocio_2_listar',
-    id_producto= id_producto
+    id_producto= id_producto,
+    nombre_negocio= 'Negocio 2'
     )
+
 #borrar productos
 @login_required
 def negocio_2_borrar(request,id_producto):
@@ -115,7 +118,6 @@ def negocio_2_borrar(request,id_producto):
     nombre_vista= 'negocio_2_listar',
     id_producto= id_producto
     )
-
 
 #VISTAS NEGOCIO 3
 #listar productos
@@ -133,6 +135,7 @@ def negocio_3_listar(request):
     pagina3= 'NEGOCIO 2',
     ruta_enviar= 'negocio_3_listar'
     )
+
 #agregar productos
 @login_required
 def negocio_3_agregar(request):
@@ -142,6 +145,7 @@ def negocio_3_agregar(request):
     modelo= Negocio_3,
     nombre_vista= 'negocio_3_agregar'
     )    
+
 #actualizar productos
 @login_required
 def negocio_3_actualizar(request,id_producto):
@@ -149,8 +153,10 @@ def negocio_3_actualizar(request,id_producto):
     request= request,
     modelo= Negocio_3,
     nombre_vista= 'negocio_3_listar',
-    id_producto= id_producto
+    id_producto= id_producto,
+    nombre_negocio= 'Negocio 3'
     )
+
 #borrar productos
 @login_required
 def negocio_3_borrar(request,id_producto):
