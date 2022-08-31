@@ -9,7 +9,7 @@
 {% block tabs %}
 
     <a href='{% url "login" %}'><h2 class="inactive underlineHover"> Iniciar Sesion </h2></a>
-    <a href='{% url "signup" %}'><h2 class="active"> Registrase </h2></a>
+    <a href='{% url "signup" %}'><h2 class="active"> Registrarse </h2></a>
 
 {% endblock tabs %}
 
@@ -42,6 +42,7 @@
         <p>La contraseña debe contener mas de 8 caracteres</p>
         <p>La contraseña no debe ser comun</p>
         <p>La contraseña no puede ser enteramente numerica</p>
+        <p>El nombre de usuario no puede ser igual a otro nombre de usuario</p>
     </div>
     
 {% endblock footer %}

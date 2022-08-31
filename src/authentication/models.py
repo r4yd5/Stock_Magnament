@@ -7,7 +7,7 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 
 class User(AbstractUser):
-    sitio_link = models.CharField(max_length=155, blank=True)
+    sitio_link = models.URLField(max_length=155, blank=True)
     descripcion = RichTextField(default="-")
 
     
