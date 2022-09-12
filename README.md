@@ -1,7 +1,5 @@
 STOCK MAGNAMENT
 
-VIDEO DEMOSTRACION: https://drive.google.com/drive/folders/1s-FgB9ALUQdIFP2-T48lKZCGzEA19G1M?usp=sharing
-
 Desarrollado completamente por: JUAN MARTIN SANCHEZ
 
 El sistema le permitira al admnistrador de un negocio poder controlar y gestionar la existencia de su stock, ademas de otras funciones.
