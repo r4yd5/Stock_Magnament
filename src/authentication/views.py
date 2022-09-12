@@ -4,7 +4,8 @@ from authentication.forms import *
 from django.contrib.auth import authenticate, login
 from authentication.models import *
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
@@ -21,6 +22,7 @@ def iniciar_sesion(request):
 
                 username = data.get('username')
                 password = data.get('password')
+
 
                 user = authenticate(username= username, password= password)
 
@@ -40,12 +42,12 @@ def registrarse(request):
             return render(request, 'authentication/signup.html',{'form':form})
 
         else:
+            form = CustomUserCreationForm(request.POST)
             try:
-                form = CustomUserCreationForm(request.POST)
                 form.save()
                 return redirect('login')
             except:
-                return render(request, 'authentication/signup.html',{'form':CustomUserCreationForm(),'error':'Datos invalidos'})
+                return render(request, 'authentication/signup.html',{'form':form})
     else:
         return redirect('home')
 
@@ -53,7 +55,7 @@ def registrarse(request):
 @login_required 
 def perfil(request):
     try:
-        avatar = Avatar.objects.filter(usuario = request.user.id).last()
+        avatar = Avatar.objects.filter(usuario= request.user.id).last()
         return render(request, 'authentication/profile.html', {'avatar':avatar.imagen.url,'flag':True})
     except:
         return render(request, 'authentication/profile.html')

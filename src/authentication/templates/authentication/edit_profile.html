@@ -18,16 +18,7 @@
     <form method="post">
         {% csrf_token %}
         {{form.media}}
-        <h3>NOMBRE:</h3>
-        <p>{{form.first_name}}</p>
-        <h3>APELLIDO:</h3>
-        <p>{{form.last_name}}</p>
-        <h3>EMAIL:</h3>
-        <p>{{form.email}}</p> 
-        <h3>DESCRIPCION:</h3>
-        {{form.descripcion}}
-        <h3>SITIO WEB:</h3>
-        <p>{{form.sitio_link}}</p> 
+        {{form}}
         <input type="submit" class="fadeIn fourth input-profile" value="Editar">
     </form>
 

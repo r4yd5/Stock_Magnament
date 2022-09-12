@@ -16,18 +16,10 @@
 
 
 {% block forms %}
-    {% if error %}
-
-        <h1 class="h1-error">{{error}}</h1>
-
-    {% endif %}
 
     <form method="post"> 
         {% csrf_token %}
-        {{form.username}}
-        {{form.email}}
-        {{form.password1}}
-        {{form.password2}}
+        {{form}}
         <input type="submit" class="fadeIn fourth" value="Registrase">
     </form>
 

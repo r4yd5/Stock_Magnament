@@ -442,3 +442,8 @@ p {
 .h1-error{
   color: red;
 }
+
+
+.button-lupa{
+  cursor: pointer;
+}

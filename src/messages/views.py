@@ -44,5 +44,5 @@ def borrar_mensajes(request,id_mensaje):
             mensaje_a_borrar.delete()
             return redirect('messages')
         else:
-            error(request, 'NO TIENES PERMISO PARA BORRAR ESTE MENSAJE')
+            error(request, 'No tienes permiso para eliminar este mensaje.')
             return redirect('messages')
