@@ -1,4 +1,4 @@
-STOCK MAGNAMENT
+STOCK MANAGEMENT
 
 Desarrollado completamente por: JUAN MARTIN SANCHEZ
 
