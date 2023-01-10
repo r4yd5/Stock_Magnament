@@ -32,4 +32,7 @@ En el apartado de perfiles el usuario podra modificar su informacion:
 * SITIO PERSONAL
 * DESCRIPCION
 
+Para poder utilizar y probar el sitio web, se desplego en un servidor de pruebas Heroku para su uso
+https://stock-management.herokuapp.com/
+
 En el apartado de mensajeria el usuario podra visualizar los mensajes de otros usuarios, enviar los suyos o eliminarlos.
